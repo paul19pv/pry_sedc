@@ -137,12 +137,12 @@ def datos_instantaneos(estacion,variable,fecha_inicio,fecha_fin):
             if str(year)==year_ini:
                 sql='SELECT * FROM '+tabla+ ' WHERE '
                 sql+='est_id_id='+str(estacion.est_id)+ ' and '
-                sql+='and med_estado is not False and '
+                sql+='med_estado is not False and '
                 sql+='med_fecha>=\''+str(fecha_inicio)+'\' order by med_fecha'
             elif str(year)==year_fin:
                 sql='SELECT * FROM '+tabla+ ' WHERE '
                 sql+='est_id_id='+str(estacion.est_id)+ ' and '
-                sql+='and med_estado is not False and '
+                sql+='med_estado is not False and '
                 sql+='med_fecha<=\''+str(fecha_fin)+' 23:59:59 \' order by med_fecha'
             else:
                 sql='SELECT * FROM '+tabla+ ' WHERE '
