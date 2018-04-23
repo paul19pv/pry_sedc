@@ -2,7 +2,7 @@
 from __future__ import unicode_literals
 
 from django.db import models
-#from sensor.models import Sensor
+from sensor.models import Sensor
 from estacion.models import Estacion
 from django.urls import reverse
 
@@ -57,6 +57,12 @@ class Control(models.Model):
     	blank=True,
     	null=True,
     	verbose_name="Estación")
+    sen_id = models.ForeignKey(
+        Sensor,
+        models.SET_NULL,
+        blank=True,
+        null=True,
+        verbose_name="Sensor")
     con_fecha_ini=models.DateField("Fecha inicio")
     con_fecha_fin=models.DateField("Fecha fin",blank=True,null=True)
     con_estado=models.BooleanField("Activo",default=True)

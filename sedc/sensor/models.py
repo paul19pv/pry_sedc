@@ -20,7 +20,7 @@ class Sensor(models.Model):
         ('Sensor de nivel','Sensor de nivel'),
     )
     sen_id=models.AutoField("Id",primary_key=True)
-    sen_nombre=models.CharField("Nombre",max_length=20,choices=TIPO_NOMBRE)
+    sen_nombre=models.CharField("Nombre",max_length=40,choices=TIPO_NOMBRE)
     mar_id=models.ForeignKey(
         Marca,
         models.SET_NULL,
@@ -29,6 +29,7 @@ class Sensor(models.Model):
         verbose_name="Marca"
     )
     sen_modelo=models.CharField("Modelo",max_length=20,null=True)
+    sen_codigo = models.CharField("Codigo", max_length=20, null=True, unique=True)
     sen_serial=models.CharField("Serial",max_length=20,null=True)
     sen_estado=models.BooleanField("Estado",default=True)
     def __str__(self):
